@@ -1,22 +1,43 @@
 const mongoose = require("mongoose");
 
+/**
+ * @openapi
+ * components:
+ *   schemas:
+ *     Farm:
+ *       type: object
+ *       required:
+ *         - area
+ *         - village
+ *         - sowingDate
+ *       properties:
+ *         area:
+ *           type: number
+ *           default: 0
+ *         village:
+ *           type: string
+ *           default: VillageName
+ *         sowingDate:
+ *           type: date
+ *           default: 12/12/12
+ *
+ */
 const FarmData = new mongoose.Schema({
   farmer: {
     type: mongoose.Schema.Types.ObjectId,
     required: true,
     ref: "Farmer",
   },
-  Area: {
-    type: String,
+  area: {
+    type: Number,
     required: [true, "Please add an Area"],
-    min: 5,
   },
-  Village: {
+  village: {
     type: String,
     required: [true, "Please add Village"],
     min: 5,
   },
-  SowingDate: {
+  sowingDate: {
     type: Date,
     required: [true, "Please Add a date"],
   },

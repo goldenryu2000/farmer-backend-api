@@ -8,13 +8,13 @@ const ScheduleData = new mongoose.Schema({
   },
   daysAfterSow: {
     type: Number,
-    required: [true, "Please add a Date after Sowing"],
+    required: [true, "Please add Number of Days after Sowing"],
   },
   fertilizer: {
     type: {
       type: String,
       required: [true, "Please add a Fertilizer type"],
-      max: 7,
+      max: 10,
     },
     quantity: {
       type: Number,
@@ -23,7 +23,7 @@ const ScheduleData = new mongoose.Schema({
     quantityUnit: {
       type: String,
       required: [true, "Please specify quantity unit"],
-      max: 3,
+      max: 5,
     },
   },
 });
