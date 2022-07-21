@@ -1,7 +1,7 @@
-const Farmer = require("/app/models/FarmerModel");
-const Country = require("/app/models/CountryModel");
-const Farm = require("/app/models/FarmModel");
-const Schedule = require("/app/models/ScheduleModel");
+const Farmer = require("../models/FarmerModel");
+const Country = require("../models/CountryModel");
+const Farm = require("../models/FarmModel");
+const Schedule = require("../models/ScheduleModel");
 const asyncHandler = require("express-async-Handler");
 
 //@desc Create a new Farmer

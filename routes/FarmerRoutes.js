@@ -4,7 +4,7 @@ const {
   newFarmer,
   addFarm,
   addSchedule,
-} = require("app/controllers/farmerController");
+} = require("../controllers/farmerController");
 
 router.post("/newfarmer", newFarmer);
 
