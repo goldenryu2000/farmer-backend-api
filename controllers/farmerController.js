@@ -19,7 +19,7 @@ const newFarmer = asyncHandler(async (req, res) => {
   const checkFarmer = await Farmer.findOne({ phone });
   if (checkFarmer) {
     res.status(400);
-    throw new Error("Farmer already exists");
+    throw new Error("Farmer with this phone already exists");
   }
 
   // check if country exists

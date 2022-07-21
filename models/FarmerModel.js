@@ -1,31 +1,7 @@
 const mongoose = require("mongoose");
 
-/**
- * @openapi
- * components:
- *   schemas:
- *     Farmer:
- *       type: object
- *       required:
- *         - name
- *         - phone
- *         - language
- *         - country
- *       properties:
- *         name:
- *           type: string
- *           default: John Doe
- *         phone:
- *           type: number
- *           default: 123567890
- *         language:
- *           type: string
- *           default: Hindi
- *         country:
- *           type: string
- *           default: India
- *
- */
+
+
 const FarmerData = new mongoose.Schema({
   name: {
     type: String,

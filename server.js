@@ -21,11 +21,14 @@ const options = {
     openapi: "3.0.0",
     info: {
       title: "Farmer Data API",
-      description: "An API made for the task by SyncSense",
+      description: "An API made for the task given by SyncSense",
       version,
     },
+    servers: [
+      { url: "http://localhost:5000/api", description: "Local Server" },
+    ],
   },
-  apis: ["./routes/*Routes.js", "./models/*Model.js"],
+  apis: ["./api-docs-schemas.js", "./api-docs-routes.js"],
 };
 
 const swaggerSpec = swaggerJsDoc(options);
