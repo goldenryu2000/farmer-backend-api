@@ -93,7 +93,7 @@ const scheduleDue = asyncHandler(async (req, res) => {
   // send response
   if (dueDate) {
     res.status(200).json({
-      daysFromToday: due,
+      daysFromToday: due - 1,
       dueDate,
     });
   } else {
