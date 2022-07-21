@@ -2,7 +2,7 @@ const Farmer = require("../models/FarmerModel");
 const Country = require("../models/CountryModel");
 const Farm = require("../models/FarmModel");
 const Schedule = require("../models/ScheduleModel");
-const asyncHandler = require("express-async-Handler");
+const asyncHandler = require("express-async-handler");
 
 //@desc Create a new Farmer
 //@route  POST /api/newfarmer

@@ -7,6 +7,7 @@ const { version } = require("./package.json");
 const cors = require("cors");
 const connectDB = require("./config/db");
 const { errorHandler } = require("./middlewares/errorMiddleware");
+const path = require("path");
 const port = process.env.PORT || 5000;
 
 // Connect to MongoDB
@@ -32,7 +33,7 @@ const options = {
 };
 
 const swaggerSpec = swaggerJsDoc(options);
-app.use("/api", require("./routes/farmerRoutes"));
+app.use("/api", require("./routes/FarmerRoutes"));
 app.use("/api/views", require("./routes/viewRoutes"));
 
 app.use(errorHandler);
