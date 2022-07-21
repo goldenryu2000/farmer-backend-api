@@ -85,9 +85,7 @@ const scheduleDue = asyncHandler(async (req, res) => {
   const due = dateDiffInDays(new Date(dayofharvest), new Date(Date.now()));
   let today = new Date(Date.now());
   let dueDate = new Date();
-  dueDate = new Date(dueDate.setDate(today.getDate() + due)).toLocaleDateString(
-    "en-US"
-  );
+  dueDate = new Date(dueDate.setDate(today.getDate() + due));
   // send response
   if (dueDate) {
     res.status(200).json({
