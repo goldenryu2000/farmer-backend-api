@@ -24,7 +24,6 @@ const dueNow = asyncHandler(async (req, res) => {
         Schedules.push(s);
       }
     });
-    s;
   }
   if (Schedules.length > 0) {
     res.status(200).json(Schedules);
