@@ -18,10 +18,10 @@
     "mongoose": "^6.4.5",
     "swagger-jsdoc": "^6.2.1",
     "swagger-ui-express": "^4.5.0",
-    "yamljs": "^0.3.0"
+    "yamljs": "^0.3.0",
+    "colors": "^1.4.0"
   },
   "devDependencies": {
-    "colors": "^1.4.0",
     "nodemon": "^2.0.19"
   }
 }
