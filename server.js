@@ -26,11 +26,11 @@ const options = {
       version,
     },
     servers: [
-      { url: "http://localhost:5000/api", description: "Local Server" },
       {
         url: "https://farmer-backend-api.herokuapp.com/api",
         description: "Deployment server",
       },
+      { url: "http://localhost:5000/api", description: "Local Server" },
     ],
   },
   apis: ["./api-docs-schemas.js", "./api-docs-routes.js"],
