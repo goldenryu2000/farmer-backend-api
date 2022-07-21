@@ -4,6 +4,11 @@ const Farm = require("../models/FarmModel");
 const Schedule = require("../models/ScheduleModel");
 const asyncHandler = require("express-async-handler");
 const { set, default: mongoose } = require("mongoose");
+Date.prototype.addDays = function (days) {
+  var date = new Date(this.valueOf());
+  date.setDate(date.getDate() + days);
+  return date;
+};
 
 //@desc   Get schedules due today/tomorrow
 //@route  GET /api/views/duenow
@@ -14,12 +19,12 @@ const dueNow = asyncHandler(async (req, res) => {
   for await (const farm of farmData) {
     const schedule = await Schedule.find({ farm: farm.id }); // get schedules for each farm
     schedule.forEach((s) => {
-      let dayofharvest = new Date();
-      dayofharvest = dayofharvest.setDate(
-        farm.sowingDate.getDate() + parseInt(s.daysAfterSow)
-      );
-      const due = dateDiffInDays(new Date(dayofharvest), new Date(Date.now())); // calculating due date using dateDiffInDays()
-      if (due <= 1) {
+      const farmDate = new Date(farm.sowingDate).toLocaleDateString("en-US");
+      let dayofharvest = new Date(farmDate);
+      dayofharvest = dayofharvest.addDays(s.daysAfterSow);
+      const today = new Date(Date.now());
+      const due = dateDiffInDays(dayofharvest, today);
+      if (due >= 0 && due <= 1) {
         s.farm = farm;
         Schedules.push(s);
       }
@@ -78,14 +83,13 @@ const scheduleDue = asyncHandler(async (req, res) => {
     throw new Error("Farm Not found for the Given Schedule");
   }
 
-  let dayofharvest = new Date();
-  dayofharvest = dayofharvest.setDate(
-    farm.sowingDate.getDate() + parseInt(schedule.daysAfterSow)
-  );
-  const due = dateDiffInDays(new Date(dayofharvest), new Date(Date.now()));
-  let today = new Date(Date.now());
+  const farmDate = new Date(farm.sowingDate).toLocaleDateString("en-US");
+  let dayofharvest = new Date(farmDate);
+  dayofharvest = dayofharvest.addDays(schedule.daysAfterSow);
+  const today = new Date(Date.now());
+  const due = dateDiffInDays(dayofharvest, today);
   let dueDate = new Date();
-  dueDate = new Date(dueDate.setDate(today.getDate() + due));
+  dueDate = dueDate.addDays(due + 1);
   // send response
   if (dueDate) {
     res.status(200).json({
