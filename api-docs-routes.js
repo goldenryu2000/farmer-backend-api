@@ -144,6 +144,7 @@
  *      get:
  *          tags:
  *              - "Farmer Views"
+ *          description: Schedules that are due today or tomorrow
  *          responses:
  *              200:
  *                  description: Due Schedules Found
