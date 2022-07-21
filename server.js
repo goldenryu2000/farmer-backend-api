@@ -6,7 +6,7 @@ const swaggerUI = require("swagger-ui-express");
 const { version } = require("./package.json");
 const cors = require("cors");
 const connectDB = require("./config/db");
-const { errorHandler } = require("./middlewares/errorMiddleware");
+const { errorHandler } = require("/app/middlewares/errorMiddleware");
 const port = process.env.PORT || 5000;
 
 // Connect to MongoDB
@@ -32,8 +32,8 @@ const options = {
 };
 
 const swaggerSpec = swaggerJsDoc(options);
-app.use("/api", require("./routes/farmerRoutes"));
-app.use("/api/views", require("./routes/viewRoutes"));
+app.use("/api", require("/app/routes/farmerRoutes"));
+app.use("/api/views", require("/app/routes/viewRoutes"));
 
 app.use(errorHandler);
 app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerSpec));

@@ -4,7 +4,7 @@ const {
   dueNow,
   growingCrops,
   scheduleDue,
-} = require("../controllers/viewController");
+} = require("app/controllers/viewController");
 
 router.get("/duenow", dueNow);
 router.get("/growing", growingCrops);
