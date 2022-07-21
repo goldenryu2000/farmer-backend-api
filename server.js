@@ -15,10 +15,6 @@ connectDB();
 const app = express();
 app.use(express.json());
 app.use(cors());
-app.use(express.static("controllers"));
-app.use(express.static("middlewares"));
-app.use(express.static("models"));
-app.use(express.static("routes"));
 
 const options = {
   definition: {
