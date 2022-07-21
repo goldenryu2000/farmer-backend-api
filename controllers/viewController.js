@@ -89,7 +89,7 @@ const scheduleDue = asyncHandler(async (req, res) => {
   const today = new Date(Date.now());
   const due = dateDiffInDays(dayofharvest, today);
   let dueDate = new Date();
-  dueDate = dueDate.addDays(due + 1);
+  dueDate = dueDate.addDays(due);
   // send response
   if (dueDate) {
     res.status(200).json({
