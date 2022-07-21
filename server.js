@@ -30,6 +30,7 @@ const options = {
 
 const swaggerSpec = swaggerJsDoc(options);
 app.use("/api", require("./routes/farmerRoutes"));
+app.use("/api/views", require("./routes/viewRoutes"));
 
 app.use(errorHandler);
 app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerSpec));

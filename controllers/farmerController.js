@@ -1,9 +1,8 @@
 const Farmer = require("../models/FarmerModel");
 const Country = require("../models/CountryModel");
 const Farm = require("../models/FarmModel");
-const asyncHandler = require("express-async-Handler");
-const { count } = require("../models/FarmerModel");
 const Schedule = require("../models/ScheduleModel");
+const asyncHandler = require("express-async-Handler");
 
 //@desc Create a new Farmer
 //@route  POST /api/newfarmer
@@ -62,7 +61,7 @@ const addFarm = asyncHandler(async (req, res) => {
   const { area, village } = req.body;
   let { sowingDate } = req.body;
 
-  if (!area || !village || !sowingDate) {
+  if (!area || !village) {
     res.status(400);
     throw new Error("Please add all the required fields");
   }
@@ -73,8 +72,12 @@ const addFarm = asyncHandler(async (req, res) => {
   }
 
   // create a new farm
-  sowingDate = new Date(sowingDate);
-  console.log(sowingDate);
+  if (sowingDate) {
+    sowingDate = new Date(sowingDate);
+  } else {
+    sowingDate = "";
+  }
+
   const newFarm = await Farm.create({
     farmer: farmerId,
     area,

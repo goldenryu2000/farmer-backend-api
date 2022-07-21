@@ -39,7 +39,7 @@ const FarmData = new mongoose.Schema({
   },
   sowingDate: {
     type: Date,
-    required: [true, "Please Add a date"],
+    default: "",
   },
 });
 
