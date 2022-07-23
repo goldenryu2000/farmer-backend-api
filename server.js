@@ -7,7 +7,6 @@ const { version } = require("./package.json");
 const cors = require("cors");
 const connectDB = require("./config/db");
 const { errorHandler } = require("./middlewares/errorMiddleware");
-const path = require("path");
 const port = process.env.PORT || 5000;
 
 // Connect to MongoDB
