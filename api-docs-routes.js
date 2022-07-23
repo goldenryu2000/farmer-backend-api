@@ -170,6 +170,40 @@
 /**
  * @openapi
  * paths:
+ *  /views/{id}/cost:
+ *      get:
+ *          tags:
+ *              - "Farmer Views"
+ *          description: Get Costs for a Farmer given the prices of fertilizers
+ *          parameters:
+ *              - name: id
+ *                in: path
+ *                description: Farmer ID
+ *                required: true
+ *                schema:
+ *                  type: string
+ *              - name: solid
+ *                in: query
+ *                description: Cost of Solid Fertilizer (per kg)
+ *                required: true
+ *                schema:
+ *                  type: number
+ *              - name: liquid
+ *                in: query
+ *                description: Cost of Liquid Fertilizer (per L)
+ *                required: true
+ *                schema:
+ *                  type: number
+ *          responses:
+ *              200:
+ *                  description: Total Cost Calculated
+ *              404:
+ *                  description: Resource not Found
+ */
+
+/**
+ * @openapi
+ * paths:
  *  /views/{sid}/scheduledue:
  *      get:
  *          tags:

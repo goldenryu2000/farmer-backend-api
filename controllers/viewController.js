@@ -111,10 +111,10 @@ const growingCrops = asyncHandler(async (req, res) => {
 });
 
 //@desc   GET cost of materials for single farmer
-//@route  GET /api/views/:id/getprice
+//@route  GET /api/views/:id/cost?solid=0&liquid=0
 //@access Public
 const getCost = asyncHandler(async (req, res) => {
-  const { solid, liquid } = req.body;
+  let { solid, liquid } = req.query;
   if (!solid && !liquid) {
     res.status(400);
     throw new Error("Please Provide prices for fertilizers");
@@ -149,7 +149,9 @@ const getCost = asyncHandler(async (req, res) => {
     res.status(404);
     throw new Error("No Schedules for the farms exist");
   }
-  console.log(schedules);
+  console.log(solid);
+  console.log(liquid);
+  console.log(schedules.length);
   let prices = {
     liquidCost: 0,
     solidCost: 0,
@@ -175,6 +177,7 @@ const getCost = asyncHandler(async (req, res) => {
       prices.solidCost += qty * solid;
     }
   });
+
   prices.totalCost = prices.liquidCost + prices.solidCost;
   // send response
   if (prices) {
