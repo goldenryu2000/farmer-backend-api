@@ -8,7 +8,7 @@ Deployed API : https://farmer-backend-api.herokuapp.com/api-docs/
 Clone the project
 
 ```bash
-  git clone https://link-to-project
+  git clone https://github.com/goldenryu2000/farmer-backend-api.git
 ```
 
 Go to the project directory
@@ -28,3 +28,30 @@ Start the server
 ```bash
   npm run server
 ```
+
+## Deployment
+
+To deploy this project on Heroku
+
+- Create a new a app on Heroku
+- Add your MONGO_URI from .env in local to "Config Vars" on Heroku
+- Add heroku remote to local repo
+- Then the commands
+
+```bash
+  git add .
+```
+
+```bash
+  git commit -m "make it better"
+```
+
+```bash
+  git branch -M main
+```
+
+```bash
+  git push heroku main
+```
+
+- Once the app is deployed, the swagger docs will be available on "Your Heroku app url"/api-docs
